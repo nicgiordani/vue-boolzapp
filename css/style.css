@@ -108,3 +108,17 @@
 .input-icon a {
   color: #b6b9bf;
 }
+.people-container {
+  position: relative;
+  padding: 5px;
+  display: flex;
+  align-items: center;
+  width: 100%;
+  height: 80px;
+  border-top: 1px solid #b6b9bf;
+}
+.people-text {
+  font-family: 'Open Sans', sans-serif;
+  font-size: 13px;
+  margin-left: 10px;
+}
