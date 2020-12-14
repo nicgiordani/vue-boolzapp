@@ -10,11 +10,12 @@
   <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600&display=swap" rel="stylesheet">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <link rel="stylesheet" href="css/style.css">
+  <script src="https://cdn.jsdelivr.net/npm/vue"></script>
   <title>Document</title>
 </head>
 <body>
 
-  <div class="container-background">
+  <div id="root">
     <div class="container">
       <div class="left-container">
         <div class="user-container">
@@ -44,21 +45,19 @@
           <input type="text" name="" value="" placeholder=" Cerca o inizia una nuova chat">
         </div>
 
-        <div class="people-container">
-          <div class="icon-silence">
-            <img class="user-icon" src="https://cdn.iconscout.com/icon/free/png-256/avatar-370-456322.png" alt="">
+        <div class="people-container" v-for="contact in contacts">
+          <div class="people-icon">
+            <img class="user-icon" v-for="(image, avatar) in contacts" :src="avatar" alt="">
           </div>
           <div class="people-text">
-            <h4>Ricevi notifiche di nuovi messaggi</h4>
-            <span>Attiva notifiche desktop</span>
+            <h4 v-for="name in contacts">{{ contact.name }}</h4>
+            <span>Tutto fatto...</span>
+          </div>
+          <div class="when-text">
+            <span>10/01/2020 16:15:22</span>
           </div>
         </div>
-
-
-
       </div>
-
-
 
       <div class="right-container">
         <div class="user-container">
@@ -70,6 +69,24 @@
             <li><a href="#"><i class="fas fa-ellipsis-v"></i></a></li>
           </ul>
         </div>
+
+        <div class="chat-background">
+          <img id="chat-background-image" src="img/sfondo.jpg" alt="">
+        </div>
+
+        <div class="send-message-container">
+          <div class="emoji">
+
+          </div>
+          <div class="message-input">
+
+          </div>
+          <div class="michrophone">
+
+          </div>
+
+        </div>
+
 
       </div>
     </div>
