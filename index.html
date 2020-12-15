@@ -45,13 +45,13 @@
           <input type="text" name="" value="" placeholder=" Cerca o inizia una nuova chat">
         </div>
 
-        <div class="people-container" v-for="contact in contacts">
+        <div class="people-container" v-for="(contact, index) in contacts" v-bind:class="(index == activeContactIndex) ? 'active' : ''" @click="setActiveContactIndex(index)">
           <div class="people-icon">
-            <img class="user-icon" v-for="(image, avatar) in contacts" :src="avatar" alt="">
+            <img class="user-icon" :src="contact.avatar" alt="">
           </div>
           <div class="people-text">
-            <h4 v-for="name in contacts">{{ contact.name }}</h4>
-            <span>Tutto fatto...</span>
+            <h4>{{ contact.name }}</h4>
+            <span>{{ this.text }}</span>
           </div>
           <div class="when-text">
             <span>10/01/2020 16:15:22</span>
@@ -71,7 +71,13 @@
         </div>
 
         <div class="chat-background">
-          <img id="chat-background-image" src="img/sfondo.jpg" alt="">
+          <div id="messages">
+            <div v-for="message in contacts[activeContactIndex].messages" class="message" :class="message.status">
+              {{ message.text }}
+            </div>
+
+          </div>
+
         </div>
 
         <div class="send-message-container">
